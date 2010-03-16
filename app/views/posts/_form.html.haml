@@ -1,0 +1,22 @@
+- form_for(@post) do |f|
+  = f.error_messages
+  %table
+    %tr
+      %td #{f.label :title}
+      %td
+        = f.text_field :title
+    %tr
+      %td
+        = f.label :body
+    %tr
+      %td{'colspan' => "2"}
+        = f.text_area :body, :size => '80x25'
+    %tr
+      %td #{f.check_box(:is_published)} #{f.label(:is_published)}
+    %tr
+      %td
+        = f.label :author
+      %td
+        = f.text_field :author
+    %tr
+      %td #{f.submit 'Submit'}

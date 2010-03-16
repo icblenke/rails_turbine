@@ -1,0 +1,17 @@
+<%- require 'rss/maker'
+  feed_content = RSS::Maker.make("2.0") do |feed|
+    feed.channel.title = @blog.title
+    feed.channel.link = 'http://www' + request.host_with_port
+    feed.channel.description = @blog.description
+
+    @posts.each do |post|
+      i = feed.items.new_item
+      i.title = post.title
+      i.link = post_url(post.key)
+      i.date = Time.parse(post.created_at.to_s)
+      i.description = post.body
+      i.author = "josh@codingforrent.com (Joshua Moore)"
+    end
+
+  end -%>
+<%= feed_content  %>

@@ -1,0 +1,4 @@
+cron: 
+- description: keep alive 
+  url: /posts/new
+  schedule: every 5 minutes

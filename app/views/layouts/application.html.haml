@@ -1,0 +1,46 @@
+%html
+  %head
+    - if @post.nil? || @post.title.nil?
+      %title= @blog.title
+    - else
+      %title= @blog.title + ' - ' + @post.title
+
+    = stylesheet_link_tag "main"
+    =# auto_discovery_link_tag :rss, formatted_posts_path(:rss)
+    = auto_discovery_link_tag :rss, "http://feeds2.feedburner.com/CodingForRent"
+
+  %table{:class => 'main_table'}
+    %tr
+      %td{:colspan => '2'}
+        %span{:class => 'login'}
+          - if @user
+            = @user.nickname  + ' - ' + link_to('Log out!', AppEngine::Users.create_logout_url(request.url))
+          - else
+            = link_to 'Log in!', AppEngine::Users.create_login_url(request.url)
+
+        %div{:class => 'title_bar'}
+          %h2= @blog.title
+          %h4= @blog.description #A blog by Josh Moore all about working with rails, Google App Engine, and other programming stuff
+          %h4= 'By: ' +@blog.author #Joshua Moore
+          %br/
+    = unless flash[:notice].nil?
+      %tr
+        %td
+          = flash[:notice]
+    %tr
+      %td{:class => 'content'}
+        = yield
+      %td{:class=>"right"}
+        - if @user && AppEngine::Users.admin?
+          = link_to 'unpublished posts',  posts_path(nil,:pending_publish => true) 
+          %br/
+          = link_to 'new post', new_post_path  	
+        %br/
+        %br/
+        = link_to("Who am I?", post_path(51002))
+        %br/
+        = link_to('RSS', "http://feeds2.feedburner.com/CodingForRent")
+        %br/
+        %br/
+        %br/
+        %iframe{:src=>'http://stackoverflow.com/users/flair/5004.html?theme=clean', :marginwidth=>"0", :marginheight=>"0", :frameborder=>"0", :scrolling=>"no", :width=>"210px", :height=>"60px"}

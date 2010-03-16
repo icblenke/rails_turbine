@@ -1,0 +1,33 @@
+- form_for([@post, Comment.new]) do |f|
+  %table
+    %tr
+      %td
+        = f.label :author 
+      %td
+        = f.text_field :author
+    %tr
+      %td
+        = f.label :email
+      %td
+        = f.text_field :email
+    %tr
+      %td
+        = f.label :website
+      %td
+        = f.text_field :website
+    %tr
+      %td{:colspan => 2}
+        = f.label :comment
+        %br/
+        = f.text_area :comment
+    %tr
+      %td{:colspan => 2}
+        = image_tag "http://image.captchas.net/?client=jmoore&random=#{@random}"
+    %tr
+      %td Captcha Text
+      %td
+        = text_field_tag :catpcha_text
+        = hidden_field_tag :random, @random
+    %tr
+      %td
+      %td{:aline => 'right'} #{f.submit 'Submit'}

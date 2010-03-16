@@ -1,0 +1,11 @@
+.comment
+  %br
+  %span
+    %b
+      = comment.website.blank? ? comment.author : "<a href=\"#{comment.website}\">#{comment.author}</a>"
+    thought,
+  %span.comment_date
+    = Date.parse(comment.created_at.to_s).to_s
+  %p
+    = comment.comment
+  %b
