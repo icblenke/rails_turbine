@@ -2,7 +2,7 @@
   <span class="post_date"><%= Date.parse(post.created_at.to_s).to_s %></span>
   <h3 class="post_title"><%= link_to  post.title, post_path(post.key) %></h3>
   <div class="post_body">
-    <%= post.body %>
+    <%= raw(post.body) -%>
   </div>
   <br />
   <div class="author">By: <%= post.author %></div>
