@@ -23,7 +23,7 @@
           %h4= @blog.description #A blog by Josh Moore all about working with rails, Google App Engine, and other programming stuff
           %h4= 'By: ' +@blog.author #Joshua Moore
           %br/
-    = unless flash[:notice].nil?
+    - unless flash[:notice].nil?
       %tr
         %td
           = flash[:notice]

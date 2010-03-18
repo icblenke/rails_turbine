@@ -1,5 +1,4 @@
-
-<%= render @post %>
+<%= render @post -%>
 <br />
 <h3 class="comment_title">Comments</h3>
 <%= render :partial => 'comments/comment', :collection => @post.comments %>
