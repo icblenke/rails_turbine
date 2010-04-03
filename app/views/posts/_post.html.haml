@@ -1,0 +1,18 @@
+.post
+  %span.post_date
+    = Date.parse(post.created_at.to_s).to_s
+  %h3.post_title
+    = link_to  post.title, post_path(post.key)
+  .post_body
+    = render_body(post)
+  %br
+  .author
+    By:
+    = post.author
+  - if AppEngine::Users.logged_in? && AppEngine::Users.admin?
+    .controls
+      = link_to 'update', edit_post_path(post)
+      %br
+      = link_to 'delete', post_path(post), :confirm => 'Are you sure?', :method => :delete
+  %br
+  %br

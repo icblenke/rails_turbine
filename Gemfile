@@ -10,3 +10,4 @@ gem 'appengine-rack'
 gem 'rails_dm_datastore'
 gem 'rails', "2.3.5"
 gem 'haml'
+gem 'kramdown'

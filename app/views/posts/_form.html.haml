@@ -14,6 +14,10 @@
     %tr
       %td #{f.check_box(:is_published)} #{f.label(:is_published)}
     %tr
+      %td #{f.label :markup_lang}
+    %tr
+      %td #{f.select :markup_lang, [['markdown', 'MARKDOWN'],['html', 'HTML']]}   
+    %tr
       %td
         = f.label :author
       %td

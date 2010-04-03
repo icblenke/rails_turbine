@@ -29,5 +29,5 @@ class ApplicationController < ActionController::Base
         redirect_to :controller => 'blogs', :action => 'new'
       end
     end
-  end
+  end                                                                        
 end

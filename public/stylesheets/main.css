@@ -6,9 +6,16 @@ span.comment_date {
     float: right;
 }
 
+div.gist {
+    font-family: "Courier New";
+    font-size: .95em;
+    width: 670px;
+    margin-left: auto;
+    margin-right: auto
+}
+
 div.author {
     text-align: right
-    
 }
 
 table.main_table {

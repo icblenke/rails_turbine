@@ -33,6 +33,7 @@ class PostsController < ApplicationController
   # GET /posts/1
   # GET /posts/1.xml
   def show
+    
     @random = Captcha.random
     
     @post = Post.find(params[:id])
@@ -47,6 +48,8 @@ class PostsController < ApplicationController
   # GET /posts/new.xml
   def new
     @post = Post.new
+
+    @post.markup_lang= 'MARKDOWN'
 
     respond_to do |format|
       format.html # new.html.erb
