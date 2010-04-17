@@ -1,7 +1,7 @@
 require 'appengine-rack'
 
 AppEngine::Rack.configure_app(
-    :application => 'jsm277',
+    :application => 'icblenke',
     :precompilation_enabled => true,
     :sessions_enabled => true,
     :version => "production")
